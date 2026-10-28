@@ -17,7 +17,7 @@ Rule that shapes everything below: **no game content before 12 Nov 10:30 AM IST.
 | Xcode | **Not installed** (only Command Line Tools). UE on Mac needs full Xcode. |
 | git, git-lfs, gh, node, ffmpeg | Installed. gh logged in. |
 | Repo | `officialtanushdeepak-bit/Epic-MegaJam`, one initial commit |
-| Windows teammate | Has a Windows PC with a GPU. Specs, UE install and git/LFS setup not yet confirmed. |
+| Windows build PC | RTX 3070 Ti 8 GB, 32 GB RAM (chosen over the RTX 5060 / 24 GB option: RAM is the tighter limit for UE). UE install and git/LFS setup not yet confirmed. |
 
 UE 5.8 macOS requirements (Epic docs): Xcode **26.0 min, 26.1.1 recommended, 26.4 incompatible**; macOS Sonoma 14.5+; M1/M2 min, M3 recommended; **16 GB min, 32 GB recommended**. macOS 26 (Tahoe) is not listed — must be smoke-tested.
 
@@ -81,9 +81,11 @@ Third-party "UEFN dream-bot team" kit: skip unless we go UEFN; if used, declare 
 ## 5. Pre-jam checklist (owner: whole team)
 
 **This week (by 2 Nov)**
-- [ ] Confirm team: names, every member 18+ by 12 Nov, every member currently enrolled (proof handy), Epic account emails.
+- [x] Every member 18+ (confirmed 28 Oct).
+- [ ] Confirm team: names, every member currently enrolled (proof handy), Epic account emails.
 - [x] Confirm who has a Windows PC + GPU. Decide UE vs UEFN → UE 5.8 (Section 3).
-- [ ] Windows teammate: send GPU model, RAM and free disk (UE + project needs ~100 GB).
+- [x] Windows PC chosen: RTX 3070 Ti + 32 GB RAM.
+- [ ] Windows teammate: confirm ~100 GB free disk for UE + project.
 - [ ] Pick Team Owner (receives prize, W-8BEN, Hyperwallet) and write down the prize split.
 - [ ] Team name.
 - [ ] Every member joins the jam on itch.io.
