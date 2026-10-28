@@ -2,6 +2,7 @@
 
 Written 28 Oct 2026. Jam opens **12 Nov 2026, 10:30 AM IST**. Deadline **16 Nov 2026, 7:29 AM IST**.
 Full rules digest: `MEGAJAM_2026_CONTEXT.md` (team context file, kept outside this repo).
+itch page re-read 28 Oct: matches the context file. AI tool credits still "coming soon". Official Rules link on the page: `epicgames.box.com/s/a7xcgl07fqoieeb99sjtd3juhj4agc4z`. In-person tickets: Eventbrite (n/a for us).
 
 Rule that shapes everything below: **no game content before 12 Nov 10:30 AM IST.** Tooling, agent configs, MCP settings, prompt libraries and scripts are allowed and must be declared. Epic may audit this repo's history, so everything committed before that time is tooling or docs only.
 
@@ -24,7 +25,7 @@ UE 5.8 macOS requirements (Epic docs): Xcode **26.0 min, 26.1.1 recommended, 26.
 ## 2. Hard findings that change the plan
 
 1. **UEFN does not run on macOS.** Windows only. On this Mac, UEFN is impossible without a teammate's Windows PC.
-2. **UE cannot package a Windows build from a Mac.** No Mac→Windows cross-compiler. The rules say the build must be "packaged for Windows"; the itch page also allows macOS. The safe reading is Windows. So a UE entry needs a Windows build machine: a teammate's PC **or** a cloud Windows VM (AWS/Azure, a few hours on day 2 and day 4).
+2. **UE cannot package a Windows build from a Mac.** No Mac→Windows cross-compiler. The itch page explicitly accepts "Windows, macOS, Android, or iOS", so a **macOS package is a valid entry** and needs no extra machine. But the PDF rules say "packaged for Windows", and most judges will play on Windows, so a Mac-only build risks fewer people being able to play it. Plan: ship macOS for sure, and add a Windows package from a teammate's PC or a cloud Windows VM (a few hours on day 2 and day 4). Submit both in the one zip if under 1 GB.
 3. **This Mac is at UE's floor.** 16 GB is the minimum and the Air has no fan, so it throttles under long editor sessions. Plan a stylized look (no heavy Lumen/Nanite scenes) and keep levels small. Render Royalty is not a realistic modifier from this machine.
 4. **Install Xcode 26.1.1 specifically.** The App Store will hand out a newer Xcode, which may be incompatible (26.4 is known-bad). Get 26.1.1 from developer.apple.com/download/all.
 5. **Unreal MCP runs tool calls serially on the game thread.** One agent drives the editor at a time; other agents work on files (C++, Python, docs, audio) in parallel.
@@ -37,11 +38,11 @@ Depends on facts only the team has: who has a Windows PC with a decent GPU.
 
 | If… | Then | Why |
 |---|---|---|
-| Nobody on the team has a Windows PC | **UE 5.8**, build Windows package on a cloud Windows VM | Only option that runs on Macs |
+| Nobody on the team has a Windows PC | **UE 5.8**, macOS package (guaranteed) + Windows package on a cloud Windows VM | Only option that runs on Macs |
 | A teammate has a strong Windows PC and wants to lead | Still **UE 5.8** (recommended) — Windows PC becomes the build + heavy-scene machine | Total gameplay freedom, Best Student + Best Team are engine-neutral |
 | The team wants Walkie-Talkie (LLM NPC narrative) | UEFN, but Tanush can only do non-editor work (Verse files, prompts, audio, video, devlog) | UEFN is Windows-only |
 
-**Recommendation: UE 5.8, Blueprints + C++ where agents help, Windows package built on a Windows box, macOS package as a backup.**
+**Recommendation: UE 5.8, Blueprints + C++ where agents help. macOS package built on this Mac, Windows package built on a Windows box.**
 
 Prize target: **Best Student Project** (main) + **Best Team** ($5k, automatic for 2+ people) or **Glass Box** (dev log) as the modifier. Requires every member enrolled in higher education.
 
