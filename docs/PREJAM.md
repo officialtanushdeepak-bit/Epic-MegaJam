@@ -17,7 +17,7 @@ Rule that shapes everything below: **no game content before 12 Nov 10:30 AM IST.
 | Xcode | **Not installed** (only Command Line Tools). UE on Mac needs full Xcode. |
 | git, git-lfs, gh, node, ffmpeg | Installed. gh logged in. |
 | Repo | `officialtanushdeepak-bit/Epic-MegaJam`, one initial commit |
-| Team | 3 people: Tanush (Mac) + 2 Windows teammates. Assumed: the RTX 5060 / 24 GB PC belongs to the third member — confirm. |
+| Team | 3 people: Tanush (Mac) + 2 Windows teammates. Both Windows PCs (3070 Ti and 5060) belong to the same teammate; third member's machine unknown. |
 | Windows build PC | RTX 3070 Ti 8 GB, 32 GB RAM (chosen over the RTX 5060 / 24 GB option: RAM is the tighter limit for UE). UE install and git/LFS setup not yet confirmed. |
 
 UE 5.8 macOS requirements (Epic docs): Xcode **26.0 min, 26.1.1 recommended, 26.4 incompatible**; macOS Sonoma 14.5+; M1/M2 min, M3 recommended; **16 GB min, 32 GB recommended**. macOS 26 (Tahoe) is not listed — must be smoke-tested.
@@ -93,8 +93,8 @@ Third-party "UEFN dream-bot team" kit: skip unless we go UEFN; if used, declare 
 
 **Suggested roles (3 people, 3 editors = 3 agents driving UE in parallel)**
 - Tanush (Mac): gameplay code + UI, audio, gameplay video, dev log, macOS package.
-- Teammate on 3070 Ti / 32 GB: levels, lighting, visuals, Windows package (build owner).
-- Teammate on 5060 / 24 GB: gameplay systems, enemies/AI, playtesting. Same Windows setup as the build PC.
+- Windows teammate (3070 Ti / 32 GB): levels, lighting, visuals, Windows package (build owner).
+- Third member: role depends on their machine (TBD). Their spare 5060 PC could be a second editor seat if they can use it.
 
 **Next week (3–9 Nov)**
 
