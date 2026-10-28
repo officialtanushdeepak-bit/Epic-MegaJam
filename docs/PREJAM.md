@@ -13,11 +13,11 @@ Rule that shapes everything below: **no game content before 12 Nov 10:30 AM IST.
 | Item | State (verified 28 Oct) |
 |---|---|
 | Machine (Tanush) | MacBook Air M4, 16 GB RAM, 10 cores, 253 GB free, macOS 26.6.2 |
-| Unreal Engine / Epic Launcher | **Not installed** |
+| Unreal Engine / Epic Launcher | Launcher installed 28 Oct; UE 5.8 not yet |
 | Xcode | **Not installed** (only Command Line Tools). UE on Mac needs full Xcode. |
 | git, git-lfs, gh, node, ffmpeg | Installed. gh logged in. |
 | Repo | `officialtanushdeepak-bit/Epic-MegaJam`, one initial commit |
-| Team | 3 people: Tanush (Mac), Windows teammate, third member. Both Windows PCs (3070 Ti and 5060) belong to the same teammate; third member's machine unknown. |
+| Team | 3 people — see Section 3a for machines and roles. |
 | Windows build PC | RTX 3070 Ti 8 GB, 32 GB RAM (chosen over the RTX 5060 / 24 GB option: RAM is the tighter limit for UE). UE install and git/LFS setup not yet confirmed. |
 
 UE 5.8 macOS requirements (Epic docs): Xcode **26.0 min, 26.1.1 recommended, 26.4 incompatible**; macOS Sonoma 14.5+; M1/M2 min, M3 recommended; **16 GB min, 32 GB recommended**. macOS 26 (Tahoe) is not listed — must be smoke-tested.
@@ -56,6 +56,24 @@ Prize target: **Best Student Project** (main) + **Best Team** ($5k, automatic fo
 
 ---
 
+## 3a. Team and roles (set 28 Oct)
+
+| | **Tanush** | **Teammate A** | **Teammate B** |
+|---|---|---|---|
+| Machine | MacBook Air M4, 16 GB | Windows PC, RTX 3070 Ti 8 GB, 32 GB RAM (spare: RTX 5060 / 24 GB PC) | Windows laptop, i5 13th gen, RTX 3050 6 GB, 16 GB RAM |
+| Role | **Lead + gameplay programmer** | **Level design + visuals + build owner** | **Audio + UI + presentation** |
+| Owns in jam | Core mechanic, player character, game rules, C++ in `Source/`; agent/MCP setup and `CLAUDE.md`; final call on scope cuts | Level blockout → art pass, lighting, materials, post-process, importing AI-made 3D assets, performance | All SFX and music (generate, pick, implement, mix), HUD and menus (UMG), on-screen text |
+| Ships | macOS package; dev log (`DEVLOG.md` → published Glass Box page) | Day-2 test package, final Windows package, `TeamName_GameName.zip` < 1 GB | 30–60 s gameplay video at ≥1080p (gameplay in first 5 s); itch page text and screenshots |
+| Content folders | `Content/Game/Core/`, `Source/` | `Content/Game/Maps/`, `Content/Game/Environment/` | `Content/Game/UI/`, `Content/Game/Audio/` |
+
+Everyone: theme brainstorm on day 1, a playtest every evening, one line in `DEVLOG.md` per meaningful change. Only edit inside your own folders; ask the owner before touching theirs.
+
+**Teammate B's laptop is below UE's recommended specs** (16 GB RAM, 6 GB VRAM). That's why B's role is UI and audio: both work in small test maps that don't need the full lit level. Rules for B: laptop plugged in, Windows power mode "Best performance", editor scalability set to Medium, open the main level only for playtests. If B can use A's spare 5060 PC instead, use that.
+
+Team Owner (receives prize, files W-8BEN): **not decided yet.**
+
+---
+
 ## 4. Skills audit — what we will actually use
 
 Out of ~150 installed skills, these map to judging criteria or submission requirements. The rest (SEO, Instagram, trading, founder-pack) are irrelevant to the jam.
@@ -85,24 +103,21 @@ Third-party "UEFN dream-bot team" kit: skip unless we go UEFN; if used, declare 
 - [x] Every member 18+ (confirmed 28 Oct).
 - [ ] Confirm team: names, every member currently enrolled (proof handy), Epic account emails.
 - [x] Confirm who has a Windows PC + GPU. Decide UE vs UEFN → UE 5.8 (Section 3).
-- [x] Windows PC chosen: RTX 3070 Ti + 32 GB RAM.
-- [ ] Windows teammate: confirm ~100 GB free disk for UE + project.
+- [x] Windows build PC chosen: Teammate A's RTX 3070 Ti + 32 GB RAM.
+- [x] Roles set (Section 3a).
+- [ ] Teammates A and B: confirm ~100 GB free disk each for UE + project.
 - [ ] Pick Team Owner (receives prize, W-8BEN, Hyperwallet) and write down the prize split.
 - [ ] Team name.
 - [ ] Every member joins the jam on itch.io.
 
-**Suggested roles (3 people, 3 editors = 3 agents driving UE in parallel)**
-- Tanush (Mac): gameplay code + UI, audio, gameplay video, dev log, macOS package.
-- Windows teammate (3070 Ti / 32 GB): levels, lighting, visuals, Windows package (build owner).
-- Third member: role depends on their machine (TBD). The Windows teammate's spare 5060 PC could be lent as a second editor seat.
-
 **Next week (3–9 Nov)**
 
 Mac (Tanush):
-- [ ] Install Xcode 26.1.1 (not latest) → `sudo xcode-select -s /Applications/Xcode.app` → open once to accept licence.
-- [ ] Install Epic Games Launcher → UE 5.8 (~60 GB).
+- [x] Installed via Homebrew (28 Oct): Epic Games Launcher, `xcodes`, `aria2`, `yt-dlp`.
+- [ ] Xcode 26.1.1: `xcodes install 26.1.1 --experimental-unxip --directory /Applications` (needs Apple ID) → `sudo xcode-select -s /Applications/Xcode-26.1.1.app` → `sudo xcodebuild -runFirstLaunch`. Xcode 26 ships the Metal toolchain separately; if UE can't compile shaders, run `xcodebuild -downloadComponent MetalToolchain`.
+- [ ] Epic Games Launcher → sign in → Unreal Engine tab → install UE 5.8 (~60 GB).
 
-Windows PC (teammate):
+Windows machines (Teammate A and Teammate B, each on their own machine):
 - [ ] Install Epic Games Launcher → the **same** UE 5.8.x version as the Mac.
 - [ ] Install Visual Studio 2022 with "Game development with C++" workload (needed for C++ and for packaging C++ projects).
 - [ ] Install Git + Git LFS, `git lfs install`, clone this repo, check that `git lfs env` works.
