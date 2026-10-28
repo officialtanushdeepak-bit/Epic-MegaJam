@@ -1,0 +1,27 @@
+# Unreal generated
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+Build/
+Plugins/*/Binaries/
+Plugins/*/Intermediate/
+
+# IDE / OS
+.vs/
+.idea/
+*.xcworkspace
+*.xcodeproj
+*.sln
+*.code-workspace
+.DS_Store
+
+# Secrets and local env
+.env
+.env.*
+
+# Packaged builds and videos (upload to itch, not git)
+Packaged/
+*.zip
+*.mov
+*.mp4
