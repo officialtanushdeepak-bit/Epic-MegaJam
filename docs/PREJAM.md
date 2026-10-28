@@ -17,6 +17,7 @@ Rule that shapes everything below: **no game content before 12 Nov 10:30 AM IST.
 | Xcode | **Not installed** (only Command Line Tools). UE on Mac needs full Xcode. |
 | git, git-lfs, gh, node, ffmpeg | Installed. gh logged in. |
 | Repo | `officialtanushdeepak-bit/Epic-MegaJam`, one initial commit |
+| Windows teammate | Has a Windows PC with a GPU. Specs, UE install and git/LFS setup not yet confirmed. |
 
 UE 5.8 macOS requirements (Epic docs): Xcode **26.0 min, 26.1.1 recommended, 26.4 incompatible**; macOS Sonoma 14.5+; M1/M2 min, M3 recommended; **16 GB min, 32 GB recommended**. macOS 26 (Tahoe) is not listed — must be smoke-tested.
 
@@ -32,9 +33,15 @@ UE 5.8 macOS requirements (Epic docs): Xcode **26.0 min, 26.1.1 recommended, 26.
 
 ---
 
-## 3. Decision needed: UE or UEFN
+## 3. Decision: Unreal Engine 5.8 (decided 28 Oct)
 
-Depends on facts only the team has: who has a Windows PC with a decent GPU.
+A teammate has a Windows PC with a GPU. So we go **UE 5.8**:
+- Both machines can run the UE editor. With UEFN only the Windows teammate could open the editor; the Mac would be limited to Verse files and side work.
+- The Windows PC is the Windows build machine and handles heavy scenes. The Mac builds the macOS package. Two packaged builds, no cloud VM needed.
+- What we give up: Walkie-Talkie ($2,500, UEFN-only) and UEFN's easy mobile path. Best Team ($5,000) and Best Student are engine-neutral, so we lose little.
+- Revisit only if the Windows teammate drops out before 12 Nov.
+
+Original options, for the record:
 
 | If… | Then | Why |
 |---|---|---|
@@ -42,7 +49,7 @@ Depends on facts only the team has: who has a Windows PC with a decent GPU.
 | A teammate has a strong Windows PC and wants to lead | Still **UE 5.8** (recommended) — Windows PC becomes the build + heavy-scene machine | Total gameplay freedom, Best Student + Best Team are engine-neutral |
 | The team wants Walkie-Talkie (LLM NPC narrative) | UEFN, but Tanush can only do non-editor work (Verse files, prompts, audio, video, devlog) | UEFN is Windows-only |
 
-**Recommendation: UE 5.8, Blueprints + C++ where agents help. macOS package built on this Mac, Windows package built on a Windows box.**
+**Stack: UE 5.8, Blueprints + C++ where agents help. macOS package from the Mac, Windows package from the teammate's PC.** Both machines must run the exact same UE 5.8.x patch version, or assets saved on one won't open on the other.
 
 Prize target: **Best Student Project** (main) + **Best Team** ($5k, automatic for 2+ people) or **Glass Box** (dev log) as the modifier. Requires every member enrolled in higher education.
 
@@ -75,16 +82,28 @@ Third-party "UEFN dream-bot team" kit: skip unless we go UEFN; if used, declare 
 
 **This week (by 2 Nov)**
 - [ ] Confirm team: names, every member 18+ by 12 Nov, every member currently enrolled (proof handy), Epic account emails.
-- [ ] Confirm who has a Windows PC + GPU. Decide UE vs UEFN (Section 3).
+- [x] Confirm who has a Windows PC + GPU. Decide UE vs UEFN → UE 5.8 (Section 3).
+- [ ] Windows teammate: send GPU model, RAM and free disk (UE + project needs ~100 GB).
 - [ ] Pick Team Owner (receives prize, W-8BEN, Hyperwallet) and write down the prize split.
 - [ ] Team name.
 - [ ] Every member joins the jam on itch.io.
 
 **Next week (3–9 Nov)**
+
+Mac (Tanush):
 - [ ] Install Xcode 26.1.1 (not latest) → `sudo xcode-select -s /Applications/Xcode.app` → open once to accept licence.
 - [ ] Install Epic Games Launcher → UE 5.8 (~60 GB).
+
+Windows PC (teammate):
+- [ ] Install Epic Games Launcher → the **same** UE 5.8.x version as the Mac.
+- [ ] Install Visual Studio 2022 with "Game development with C++" workload (needed for C++ and for packaging C++ projects).
+- [ ] Install Git + Git LFS, `git lfs install`, clone this repo, check that `git lfs env` works.
+- [ ] Install Claude Code (or their agent of choice); confirm it connects to the editor's MCP server.
+
+Both:
 - [ ] Throwaway project (outside this repo): enable Unreal MCP + All Toolsets, Auto Start Server, run `ModelContextProtocol.GenerateClientConfig ClaudeCode`, smoke test "What actors do I have selected?".
-- [ ] Throwaway project: package for macOS. Then package for Windows on the Windows box / cloud VM. Time both.
+- [ ] Throwaway C++ project: package for macOS on the Mac and for Windows on the PC. Time both. Then write the packaging scripts from the commands that worked.
+- [ ] Round-trip test: save a `.uasset` on one machine, push, pull and open it on the other.
 - [ ] Record 30 s of screen at 1920×1080 and confirm the file is ≥1080p.
 - [ ] Re-check itch page + blog for AI tool credits.
 - [ ] Watch the UE MCP setup video and livestream (links in the context file).

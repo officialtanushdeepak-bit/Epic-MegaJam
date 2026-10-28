@@ -2,6 +2,8 @@
 
 Entry for the 2026 Epic AI MegaJam. Jam window: 12 Nov 2026 10:30 AM IST → 16 Nov 2026 7:29 AM IST. Background and checklists: `docs/PREJAM.md`.
 
+Engine: **Unreal Engine 5.8** (same patch version on every machine). Team works on macOS (Apple Silicon) and Windows; the Windows PC builds the Windows package, the Mac builds the macOS package.
+
 ## Hard rules (break one = disqualification risk)
 - **No game content before 12 Nov 2026 10:30 AM IST.** Before then only tooling, configs, scripts and docs. Epic can audit git history.
 - Everything player-facing is **English** and **13+ (ESRB Teen)**.
@@ -17,6 +19,7 @@ Entry for the 2026 Epic AI MegaJam. Jam window: 12 Nov 2026 10:30 AM IST → 16 
 
 ## Git
 - Small commits, honest messages, commit often (history is evidence for judges and for the Glass Box dev log).
+- `.uasset` / `.umap` files can't be merged. **One person owns each map and asset folder**; announce in team chat before editing someone else's, and pull before you open the editor.
 - Binary assets go through Git LFS (`.gitattributes`). Never commit `Binaries/`, `Intermediate/`, `Saved/`, `DerivedDataCache/`.
 - Work on a branch per feature; merge to `main` only when it opens in the editor and runs.
 
